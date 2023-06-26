@@ -157,7 +157,7 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 
                 if ( listaCursosDtos.size() == 0 ) {
 					log.error( Constantes.NO_RECORDS_FOUND + 
-						": [ No hay cursos por mostrar para el profesor con ID " + idAlumno + "]" );
+						": [ No hay cursos por mostrar para el alumno con ID " + idAlumno + "]" );
 					continue;
 				};
 
@@ -331,7 +331,7 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 
 			if ( listaCursosDtos.size() == 0 ) {
 				return Util.getResponse( true, Constantes.NO_RECORDS_FOUND + 
-					": [ No hay cursos por mostrar para este profesor ]", null );
+					": [ No hay cursos por mostrar para este alumno ]", null );
 			}
 
 			AlumnoCursosDto alumnoCursosDto = AlumnoCursosDto.builder()
@@ -478,9 +478,7 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 
 		try {
 
-			AlumnoCursoEntity alumnoCursoEntityFound = alumnoCursoRepository.findById( id ).orElse(null);
-
-			if ( alumnoCursoEntityFound == null ) {
+			if ( !alumnoCursoRepository.existsById( id ) ) {
 				log.error( Constantes.NO_RECORD_FOUND );
 				return Util.getResponse( false, Constantes.NO_RECORD_FOUND, null );
 			}

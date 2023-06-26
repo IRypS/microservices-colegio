@@ -1,4 +1,4 @@
-package com.edu.certus.msalumno.config;
+package com.edu.certus.msprofesor.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,15 +21,15 @@ public class SwaggerConfig {
         return new Docket( DocumentationType.SWAGGER_2 )
             .apiInfo( getApiInfo() )
             .select()
-            .apis( RequestHandlerSelectors.basePackage( "com.edu.certus.msalumno" ) )
+            .apis( RequestHandlerSelectors.basePackage( "com.edu.certus.msprofesor" ) )
             .paths( PathSelectors.any() )
             .build();
     }
 
     private ApiInfo getApiInfo() {
         return new ApiInfoBuilder()
-            .title( "Microservicio Alumno" )
-            .description( "Microservicio destinado a alumnos" )
+            .title( "Microservicio Profesor" )
+            .description( "Microservicio destinado a profesores" )
             .version( "1.0" )
             .contact( 
                 new Contact(

@@ -1,6 +1,4 @@
-package com.edu.certus.msalumno.dto;
-
-import java.util.List;
+package com.edu.certus.msprofesor.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CursoResponseDto {
+public class CursoMinDto {
 
-	private List<AlumnoDto> alumno;
-	private Object curso;
-	
+	private Long id;
+	private String descripcion;
+
 }
