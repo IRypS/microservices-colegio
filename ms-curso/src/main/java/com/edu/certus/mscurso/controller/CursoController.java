@@ -43,14 +43,14 @@ public class CursoController {
 
 
     @GetMapping( "/{id}" )
-    public ResponseEntity< ResponseDto > getProfesorTrueById( @PathVariable( "id" ) Long id ) {
+    public ResponseEntity< ResponseDto > getCursoTrueById( @PathVariable( "id" ) Long id ) {
         return ResponseEntity.status( HttpStatus.OK ).body( cursoService.getCursoById( id, true ) );
     }
 
 
 
     @GetMapping( "/all/{id}" )
-    public ResponseEntity< ResponseDto > getProfesorById( @PathVariable( "id" ) Long id ) {
+    public ResponseEntity< ResponseDto > getCursoById( @PathVariable( "id" ) Long id ) {
         return ResponseEntity.status( HttpStatus.OK ).body( cursoService.getCursoById( id, false ) );
     }
 

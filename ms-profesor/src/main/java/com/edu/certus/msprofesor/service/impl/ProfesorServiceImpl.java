@@ -109,12 +109,29 @@ public class ProfesorServiceImpl implements ProfesorService {
         try {
 
             String nombres = profesorDto.getNombres().trim();
+
+            if( nombres.length() == 0 ) {
+                log.error( Constantes.ATTRIBUTE_MISSING + " [nombres]" );
+                return Util.getResponse( false, Constantes.ATTRIBUTE_MISSING + " [nombres]", null );
+            }
+
             String apellidos = profesorDto.getApellidos().trim();
+
+            if( apellidos.length() == 0 ) {
+                log.error( Constantes.ATTRIBUTE_MISSING + " [apellidos]" );
+                return Util.getResponse( false, Constantes.ATTRIBUTE_MISSING + " [apellidos]", null );
+            }
+
             String sexo = profesorDto.getSexo();
 
+            if( sexo.length() == 0 ) {
+                log.error( Constantes.ATTRIBUTE_MISSING + " [sexo]" );
+                return Util.getResponse( false, Constantes.ATTRIBUTE_MISSING + " [sexo]", null );
+            }
+
             if ( !sexo.equals("M") && !sexo.equals("F") ) {
-                log.error( Constantes.ATTRIBUTE_BAD + " [sexo]" );
-                return Util.getResponse( false, Constantes.ATTRIBUTE_BAD + " [sexo]", null );
+                log.error( Constantes.ATTRIBUTE_BAD + " [sexo] debe ser F o M" );
+                return Util.getResponse( false, Constantes.ATTRIBUTE_BAD + " [sexo] debe ser F o M", null );
             }
 
 
@@ -161,12 +178,29 @@ public class ProfesorServiceImpl implements ProfesorService {
 
             
             String nombres = profesorDto.getNombres().trim();
+
+            if( nombres.length() == 0 ) {
+                log.error( Constantes.ATTRIBUTE_MISSING + " [nombres]" );
+                return Util.getResponse( false, Constantes.ATTRIBUTE_MISSING + " [nombres]", null );
+            }
+
             String apellidos = profesorDto.getApellidos().trim();
+
+            if( apellidos.length() == 0 ) {
+                log.error( Constantes.ATTRIBUTE_MISSING + " [apellidos]" );
+                return Util.getResponse( false, Constantes.ATTRIBUTE_MISSING + " [apellidos]", null );
+            }
+
             String sexo = profesorDto.getSexo();
 
+            if( sexo.length() == 0 ) {
+                log.error( Constantes.ATTRIBUTE_MISSING + " [sexo]" );
+                return Util.getResponse( false, Constantes.ATTRIBUTE_MISSING + " [sexo]", null );
+            }
+
             if ( !sexo.equals("M") && !sexo.equals("F") ) {
-                log.error( Constantes.ATTRIBUTE_BAD + " [sexo]" );
-                return Util.getResponse( false, Constantes.ATTRIBUTE_BAD + " [sexo]", null );
+                log.error( Constantes.ATTRIBUTE_BAD + " [sexo] debe ser F o M" );
+                return Util.getResponse( false, Constantes.ATTRIBUTE_BAD + " [sexo] debe ser F o M", null );
             }
 
 

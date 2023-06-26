@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.edu.certus.msalumno.dto.ResponseDto;
 
 
-@FeignClient( name = "ms-curso", url = "http://localhost:8083" )
+@FeignClient( name = "ms-curso" )
 public interface CursoClient {
     
     @GetMapping( "/v1/curso" )
-    public ResponseDto readAllCurso();
+    public ResponseDto getAllCursoTrue();
 
     @GetMapping( "/v1/curso/{id}" )
-    public ResponseDto readCurso( @PathVariable( "id" ) Long id );
+    public ResponseDto getCursoTrueById( @PathVariable( "id" ) Long id );
 
 }

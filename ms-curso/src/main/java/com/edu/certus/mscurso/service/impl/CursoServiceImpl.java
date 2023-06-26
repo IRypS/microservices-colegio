@@ -149,8 +149,12 @@ public class CursoServiceImpl implements CursoService {
                 return Util.getResponse( false, Constantes.NO_RECORD_FOUND, null );
             }
 
-            
             String descripcion = cursoDto.getDescripcion().trim();
+
+            if( descripcion.length() == 0 ) {
+                log.error( Constantes.ATTRIBUTE_MISSING + " [descripcion]" );
+                return Util.getResponse( false, Constantes.ATTRIBUTE_MISSING + " [descripcion]", null );
+            }
 
             CursoEntity cursoEntityDuplicatedFound = cursoRepository.findByDescripcionAndEstadoTrue( descripcion );
 

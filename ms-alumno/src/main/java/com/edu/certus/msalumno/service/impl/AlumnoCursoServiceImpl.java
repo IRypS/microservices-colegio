@@ -68,7 +68,7 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 					continue;
 				}
 	
-				ResponseDto responseDto = cursoClient.readCurso( record.getIdCurso() );
+				ResponseDto responseDto = cursoClient.getCursoTrueById( record.getIdCurso() );
 				CursoDto cursoDto = mapper.convertValue( responseDto.getData(), CursoDto.class );
 
 				if ( cursoDto == null ) {
@@ -138,7 +138,7 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 				
 				for ( AlumnoCursoEntity record : listaCursos ) {
 
-					ResponseDto cursoResponse = cursoClient.readCurso( record.getIdCurso() );
+					ResponseDto cursoResponse = cursoClient.getCursoTrueById( record.getIdCurso() );
 					CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 
 					if ( cursoResponse.getData() == null ) {
@@ -206,7 +206,7 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 				return Util.getResponse(true, Constantes.NO_RECORD_FOUND + " | Alumno ID: " + alumnoCursoEntity.getIdAlumno() , null);
 			}
 
-			ResponseDto cursoResponse = cursoClient.readCurso( alumnoCursoEntity.getIdCurso() );
+			ResponseDto cursoResponse = cursoClient.getCursoTrueById( alumnoCursoEntity.getIdCurso() );
 			CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 			
 			if ( cursoResponse.getData() == null ) {
@@ -257,7 +257,7 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 				return Util.getResponse(true, Constantes.NO_RECORD_FOUND + " | Alumno ID: " + idAlumno , null);
 			}
 
-			ResponseDto cursoResponse = cursoClient.readCurso( idCurso );
+			ResponseDto cursoResponse = cursoClient.getCursoTrueById( idCurso );
 			CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 			
 			if ( cursoResponse.getData() == null ) {
@@ -312,7 +312,7 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 			
 			for ( AlumnoCursoEntity record : listAlumnoCursoEntity ) {
 	
-				ResponseDto responseDto = cursoClient.readCurso( record.getIdCurso() );
+				ResponseDto responseDto = cursoClient.getCursoTrueById( record.getIdCurso() );
 				CursoDto cursoDto = mapper.convertValue( responseDto.getData(), CursoDto.class );
 
 				if ( cursoDto == null ) {
@@ -383,7 +383,7 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 				return Util.getResponse( false, Constantes.NO_RECORD_FOUND + " | Alumno ID: " + idAlumno , null );
 			}
 
-			ResponseDto cursoResponse = cursoClient.readCurso( idCurso );
+			ResponseDto cursoResponse = cursoClient.getCursoTrueById( idCurso );
 
 			if ( cursoResponse.getData() == null ) {
 				log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + idCurso );
@@ -447,7 +447,7 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 				return Util.getResponse( false, Constantes.NO_RECORD_FOUND + " | Alumno ID: " + idAlumno , null );
 			}
 
-			ResponseDto cursoResponse = cursoClient.readCurso( idCurso );
+			ResponseDto cursoResponse = cursoClient.getCursoTrueById( idCurso );
 
 			if ( cursoResponse.getData() == null ) {
 				log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + idCurso );
