@@ -7,7 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// TODO: AÑadir sexo en profesor
 @Builder
 @Data
 @NoArgsConstructor
@@ -24,6 +23,9 @@ public class ProfesorCursoDto {
 
 	@ApiModelProperty( value = "Nombres de profesor", example = "Juan Alberto Soliz Arrenda", dataType = "string" )
 	private String nombreProfesor;
+
+	@ApiModelProperty( value = "Sexo profesor", example = "M", dataType = "string" )
+	private String sexoProfesor;
 
 	@ApiModelProperty( value = "Visibilidad del profesor", example = "true", dataType = "boolean" )
 	private Boolean estadoProfesor;
