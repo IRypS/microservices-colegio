@@ -22,7 +22,7 @@ public interface ProfesorCursoRepository extends JpaRepository< ProfesorCursoEnt
 
 
     /**
-     * Busca un listadop de registros ( profesor - curso ) a partir de un ID de profesor
+     * Busca un listado de registros ( profesor - curso ) a partir de un ID de profesor
      * @param idProfesor ID del profesor a buscar en los registros
      * @return Listado de objetos <b>ProfesorCursoEntity</b>
      */

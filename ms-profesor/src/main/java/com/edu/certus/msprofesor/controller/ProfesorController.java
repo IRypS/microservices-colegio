@@ -70,7 +70,7 @@ public class ProfesorController {
     @ApiOperation( value = "Método para crear un profesor",
         notes = "- Al crearse, el atributo \"estado\" se inicializa en [True]   " + 
                 "- El atributo ID se crea una vez se registra en la base de datos   " + 
-                "- **No se creará el profesor si ya existe uno visible con los mismos nombres ya apellidos**   " )
+                "- **No se creará el profesor si ya existe uno visible con los mismos nombres y apellidos**   " )
     @PostMapping
     public ResponseEntity< ResponseDto > createProfesor( @RequestBody ProfesorDto profesorDto ) {
         return ResponseEntity.status( HttpStatus.OK ).body( profesorService.createProfesor( profesorDto ) );

@@ -1,5 +1,9 @@
 package com.edu.certus.msalumno.util;
 
+/**
+ * Contantes utilzadas para los mensajes de objetos 
+ * <b>ResponseDto</b>
+ */
 public class Constantes {
 
 	public static final String CODE_SUCCES = "0";
