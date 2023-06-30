@@ -11,24 +11,24 @@ import com.edu.certus.mscurso.entity.CursoEntity;
 public interface CursoRepository extends JpaRepository<CursoEntity, Long> {
     
     /**
-     * Retorna un listado de cursos cuyo estado es <b>True</b>
-     * @return Listado de cursos activos
+     * Busca cursos ( estado = true (1) ) 
+     * @return Listado de objetos <b>CursoEntity</b>
      */
     public List<CursoEntity> findAllByEstadoTrue();
 
 
     /**
-     * Busca un curso con estado [True] por su ID
+     * Busca un curso ( estado = true (1) ) con el ID ingresado
      * @param id ID del curso a buscar
-     * @return Curso visible [True]
+     * @return Objeto <b>CursoEntity</b>
      */
     public CursoEntity findByIdAndEstadoTrue( Long id );
 
 
     /**
-     * Busca un curso activo según su descripción
-     * @param descripcion Descripción del curso
-     * @return Curso activo según la descripción ingresada
+     * Busca un curso ( estado = true (1) ) con la descrioción ingresada.
+     * @param descripcion Descripción (nombre) del curso a buscar
+     * @return Objeto <b>CursoEntity</b>
      */
     public CursoEntity findByDescripcionAndEstadoTrue( String descripcion );
 
