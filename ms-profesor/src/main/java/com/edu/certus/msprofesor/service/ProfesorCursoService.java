@@ -1,6 +1,6 @@
 package com.edu.certus.msprofesor.service;
 
-import com.edu.certus.msprofesor.dto.ProfesorCursoDto;
+import com.edu.certus.msprofesor.dto.ProfesorCursoSendDto;
 import com.edu.certus.msprofesor.dto.ResponseDto;
 
 public interface ProfesorCursoService {
@@ -68,7 +68,7 @@ public interface ProfesorCursoService {
 
 	/**
 	 * Crea un nuevo objeto <b>ProfesorCursoDto</b> (profesor - curso) 
-	 * @param profesorCursoDto Objeto <b>ProfesorCursoDto</b> con el ID del profesor y el ID del curso a crear
+	 * @param profesorCursoSendDto Objeto <b>ProfesorCursoSendDto</b> con el ID del profesor y el ID del curso a crear
 	 * @return Objeto <b>ResponseDto</b> con los siguientes resultados: <br><br>
      *         - Código exitoso y registro creado. <br><br>
      *         - Código fallido si no se colocan ambos IDs. <br><br>
@@ -76,21 +76,20 @@ public interface ProfesorCursoService {
      *         - Código fallido si no se colocan IDs de un profesor y curso válido. <br><br>
      *         - Código fallido en caso de error. 
 	 */
-	public ResponseDto createProfesorCurso( ProfesorCursoDto profesorCursoDto );
+	public ResponseDto createProfesorCurso( ProfesorCursoSendDto profesorCursoSendDto );
 
 
 
 	/**
 	 * Actualiza un objeto <b>ProfesorCursoDto</b> (profesor - curso)  
-	 * @param id ID del registro a actualizar
-	 * @param profesorCursoDto Objeto <b>ProfesorCursoDto</b> con el ID del profesor y el ID del curso a actualizar
+	 * @param profesorCursoSendDto Objeto <b>ProfesorCursoSendDto</b> con el ID del registro, ID del profesor y el ID del curso a actualizar
 	 * @return Objeto <b>ResponseDto</b> con los siguientes resultados: <br><br>
      *         - Código exitoso y registro actualizado. <br><br>
-     *         - Código fallido si no se encuentran un registro con el ID ingresado. <br><br>
+     *         - Código fallido si no se encuentran un registro con el ID de registro ingresado. <br><br>
 	 * 		   - Código fallido si no se colocan ambos IDs. <br><br>
      *         - Código fallido en caso de error.
 	 */
-	public ResponseDto updateProfesorCurso( Long id, ProfesorCursoDto profesorCursoDto );
+	public ResponseDto updateProfesorCurso( ProfesorCursoSendDto profesorCursoSendDto );
 
 
 

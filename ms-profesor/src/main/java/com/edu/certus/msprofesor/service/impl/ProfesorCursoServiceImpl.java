@@ -12,6 +12,7 @@ import com.edu.certus.msprofesor.client.CursoClient;
 import com.edu.certus.msprofesor.dto.CursoDto;
 import com.edu.certus.msprofesor.dto.CursoMinDto;
 import com.edu.certus.msprofesor.dto.ProfesorCursoDto;
+import com.edu.certus.msprofesor.dto.ProfesorCursoSendDto;
 import com.edu.certus.msprofesor.dto.ProfesorCursosDto;
 import com.edu.certus.msprofesor.dto.ResponseDto;
 import com.edu.certus.msprofesor.entity.ProfesorCursoEntity;
@@ -362,12 +363,12 @@ public class ProfesorCursoServiceImpl implements ProfesorCursoService {
 
 
 	@Override
-	public ResponseDto createProfesorCurso( ProfesorCursoDto profesorCursoDto ) {
+	public ResponseDto createProfesorCurso( ProfesorCursoSendDto profesorCursoSendDto ) {
 		
 		try {
 
-			Long idProfesor = profesorCursoDto.getIdProfesor();
-			Long idCurso = profesorCursoDto.getIdCurso();
+			Long idProfesor = profesorCursoSendDto.getIdProfesor();
+			Long idCurso = profesorCursoSendDto.getIdCurso();
 
 			if ( idProfesor == null | idCurso == null ) {
 				log.error( Constantes.ATTRIBUTE_MISSING + " [idProfesor/idCurso]" );
@@ -419,16 +420,17 @@ public class ProfesorCursoServiceImpl implements ProfesorCursoService {
 
 
 	@Override
-	public ResponseDto updateProfesorCurso( Long id, ProfesorCursoDto profesorCursoDto ) {
+	public ResponseDto updateProfesorCurso( ProfesorCursoSendDto profesorCursoSendDto ) {
 
 		try {
 
-			Long idProfesor = profesorCursoDto.getIdProfesor();
-			Long idCurso = profesorCursoDto.getIdCurso();
+			Long id = profesorCursoSendDto.getId();
+			Long idProfesor = profesorCursoSendDto.getIdProfesor();
+			Long idCurso = profesorCursoSendDto.getIdCurso();
 
-			if ( idProfesor == null | idCurso == null ) {
-				log.error( Constantes.ATTRIBUTE_MISSING + " [idProfesor/idCurso]" );
-				return Util.getResponse( false, Constantes.ATTRIBUTE_MISSING + " [idProfesor/idCurso]", null );
+			if ( id == null | idProfesor == null | idCurso == null ) {
+				log.error( Constantes.ATTRIBUTE_MISSING + " [id/idProfesor/idCurso]" );
+				return Util.getResponse( false, Constantes.ATTRIBUTE_MISSING + " [id/idProfesor/idCurso]", null );
 			}
 
 			ProfesorCursoEntity profesorCursoEntityFound = profesorCursoRepository.findById( id ).orElse(null);

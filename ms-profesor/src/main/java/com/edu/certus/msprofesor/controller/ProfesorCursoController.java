@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.edu.certus.msprofesor.dto.ProfesorCursoDto;
+import com.edu.certus.msprofesor.dto.ProfesorCursoSendDto;
 import com.edu.certus.msprofesor.dto.ResponseDto;
 import com.edu.certus.msprofesor.service.ProfesorCursoService;
 
@@ -78,12 +78,13 @@ public class ProfesorCursoController {
     }
     
 
-    // TODO: CREAR UN DTO UNICAMENTE CON ID´S PARA CREAR Y ACTUALZIAR
+
     @ApiOperation( value = "Método para crear un registro ( profesor - curso ) ",
-        notes = "- Se evaluará si existe un registro con los mismos datos y de no encontrarlo creará la relación" )
+        notes = "- Se evaluará si existe un registro con los mismos datos y de no encontrarlo creará el registro   " + 
+                "- El atributo ID se crea una vez se registra en la base de datos" )
     @PostMapping
-    public ResponseEntity< ResponseDto > createProfesorCurso( @RequestBody ProfesorCursoDto profesorCursoDto ) {
-        return ResponseEntity.status( HttpStatus.OK ).body( profesorCursoService.createProfesorCurso( profesorCursoDto ) );
+    public ResponseEntity< ResponseDto > createProfesorCurso( @RequestBody ProfesorCursoSendDto profesorCursoSendDto ) {
+        return ResponseEntity.status( HttpStatus.OK ).body( profesorCursoService.createProfesorCurso( profesorCursoSendDto ) );
     }
     
 
@@ -91,11 +92,9 @@ public class ProfesorCursoController {
     @ApiOperation( value = "Método para actualizar un registro ( profesor - curso ) ",
         notes = "- Antes de actualizar evaluará si existe el registro   " +
                 "- También evaluará si los nuevos datos del registro ( profesor - curso ) no se encuentra en otro registro existente" )
-    @PutMapping( "/{id}" )
-    public ResponseEntity< ResponseDto > updateProfesorCurso(
-            @PathVariable("id") Long id,
-            @RequestBody ProfesorCursoDto profesorCursoDto ) {
-        return ResponseEntity.status( HttpStatus.OK ).body( profesorCursoService.updateProfesorCurso( id, profesorCursoDto ) );
+    @PutMapping
+    public ResponseEntity< ResponseDto > updateProfesorCurso( @RequestBody ProfesorCursoSendDto profesorCursoSendDto ) {
+        return ResponseEntity.status( HttpStatus.OK ).body( profesorCursoService.updateProfesorCurso( profesorCursoSendDto ) );
     }
     
 
