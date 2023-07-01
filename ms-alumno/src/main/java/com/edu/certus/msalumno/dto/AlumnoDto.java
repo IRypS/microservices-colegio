@@ -28,7 +28,7 @@ public class AlumnoDto {
 	private String sexo;
 
 	@ApiModelProperty( value = "Visibilidad", example = "true", dataType = "boolean" )
-	private Boolean estado;
+	private boolean estado;
 
 	
 }

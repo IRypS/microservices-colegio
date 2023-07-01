@@ -7,7 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// TODO: AÑadir sexo en alumno
 @Builder
 @Data
 @NoArgsConstructor
@@ -29,7 +28,7 @@ public class AlumnoCursoDto {
 	private String sexoAlumno;
 
 	@ApiModelProperty( value = "Visibilidad del alumno", example = "true", dataType = "boolean" )
-	private Boolean estadoAlumno;
+	private boolean estadoAlumno;
 
 	@ApiModelProperty( value = "ID curso", example = "20", dataType = "integer" )
 	private Long idCurso;

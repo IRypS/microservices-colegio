@@ -28,7 +28,7 @@ public class ProfesorCursoDto {
 	private String sexoProfesor;
 
 	@ApiModelProperty( value = "Visibilidad del profesor", example = "true", dataType = "boolean" )
-	private Boolean estadoProfesor;
+	private boolean estadoProfesor;
 
 	@ApiModelProperty( value = "ID curso", example = "20", dataType = "integer" )
 	private Long idCurso;

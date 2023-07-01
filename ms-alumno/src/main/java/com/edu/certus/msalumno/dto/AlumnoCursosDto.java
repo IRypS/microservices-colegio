@@ -27,7 +27,7 @@ public class AlumnoCursosDto {
 	private String sexoAlumno;
 
 	@ApiModelProperty( value = "Visibilidad del alumno", example = "true", dataType = "boolean" )
-	private Boolean estadoAlumno;
+	private boolean estadoAlumno;
 
 	@ApiModelProperty(value = "Lista de cursos", dataType = "java.util.List<CursoMinDto>")
 	private List<CursoMinDto> cursos;

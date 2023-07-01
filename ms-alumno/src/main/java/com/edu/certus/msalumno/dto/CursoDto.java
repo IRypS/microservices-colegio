@@ -7,7 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// TODO: CAMBIAR EL BOOLEAN
 @Builder
 @Data
 @NoArgsConstructor
@@ -23,7 +22,7 @@ public class CursoDto {
 	private String descripcion;
 
 	@ApiModelProperty( value = "Visibilidad del curso", example = "true", dataType = "boolean" )
-	private Boolean estado;
+	private boolean estado;
 
 	
 }
