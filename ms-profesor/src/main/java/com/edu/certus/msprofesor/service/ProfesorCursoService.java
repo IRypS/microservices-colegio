@@ -67,7 +67,7 @@ public interface ProfesorCursoService {
 
 
 	/**
-	 * Crea un nuevo objeto <b>ProfesorCursoDto</b> (profesor - curso) 
+	 * Crea un nuevo objeto <b>ProfesorCursoSendDto</b> (profesor - curso) 
 	 * @param profesorCursoSendDto Objeto <b>ProfesorCursoSendDto</b> con el ID del profesor y el ID del curso a crear
 	 * @return Objeto <b>ResponseDto</b> con los siguientes resultados: <br><br>
      *         - Código exitoso y registro creado. <br><br>
@@ -81,7 +81,7 @@ public interface ProfesorCursoService {
 
 
 	/**
-	 * Actualiza un objeto <b>ProfesorCursoDto</b> (profesor - curso)  
+	 * Actualiza un objeto <b>ProfesorCursoSendDto</b> (profesor - curso)  
 	 * @param profesorCursoSendDto Objeto <b>ProfesorCursoSendDto</b> con el ID del registro, ID del profesor y el ID del curso a actualizar
 	 * @return Objeto <b>ResponseDto</b> con los siguientes resultados: <br><br>
      *         - Código exitoso y registro actualizado. <br><br>

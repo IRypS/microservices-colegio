@@ -68,7 +68,6 @@ public class CursoController {
 
 
 
-    // TODO: [OPCIONAL] CREAR UN DTO CON SOLO ATRIBUTOS NECESARIOS PARA LA CREACION
     @ApiOperation( value = "Método para crear un curso",
         notes = "- Al crearse, el atributo \"estado\" se inicializa en [True]   " + 
                 "- El atributo ID se crea una vez se registra en la base de datos   " + 

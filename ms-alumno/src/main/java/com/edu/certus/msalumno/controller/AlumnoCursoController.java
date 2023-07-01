@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.edu.certus.msalumno.dto.AlumnoCursoDto;
+import com.edu.certus.msalumno.dto.AlumnoCursoSendDto;
 import com.edu.certus.msalumno.dto.ResponseDto;
 import com.edu.certus.msalumno.service.AlumnoCursoService;
 
@@ -79,12 +79,12 @@ public class AlumnoCursoController {
     
 
 
-    // TODO: CREAR UN DTO UNICAMENTE CON ID´S PARA CREAR Y ACTUALZIAR
     @ApiOperation( value = "Método para crear un registro ( alumno - curso ) ",
-        notes = "- Se evaluará si existe un registro con los mismos datos y de no encontrarlo creará la relación" )
+        notes = "- Se evaluará si existe un registro con los mismos datos y de no encontrarlo creará el registro   " + 
+                "- El atributo ID se crea una vez se registra en la base de datos" )
     @PostMapping
-    public ResponseEntity< ResponseDto > createAlumnoCurso(@RequestBody AlumnoCursoDto alumnoCursoDto ) {
-        return ResponseEntity.status( HttpStatus.OK ).body( alumnoCursoService.createAlumnoCurso( alumnoCursoDto ) );
+    public ResponseEntity< ResponseDto > createAlumnoCurso(@RequestBody AlumnoCursoSendDto alumnoCursoSendDto ) {
+        return ResponseEntity.status( HttpStatus.OK ).body( alumnoCursoService.createAlumnoCurso( alumnoCursoSendDto ) );
     }
     
 
@@ -92,11 +92,9 @@ public class AlumnoCursoController {
     @ApiOperation( value = "Método para actualizar un registro ( alumno - curso ) ",
         notes = "- Antes de actualizar evaluará si existe el registro   " +
                 "- También evaluará si los nuevos datos del registro ( alumno - curso ) no se encuentra en otro registro existente" )
-    @PutMapping( "/{id}" )
-    public ResponseEntity< ResponseDto > updateAlumnoCurso(
-            @PathVariable("id") Long id,
-            @RequestBody AlumnoCursoDto alumnoCursoDto ) {
-        return ResponseEntity.status( HttpStatus.OK ).body( alumnoCursoService.updateAlumnoCurso( id, alumnoCursoDto ) );
+    @PutMapping
+    public ResponseEntity< ResponseDto > updateAlumnoCurso( @RequestBody AlumnoCursoSendDto alumnoCursoSendDto ) {
+        return ResponseEntity.status( HttpStatus.OK ).body( alumnoCursoService.updateAlumnoCurso( alumnoCursoSendDto ) );
     }
     
 

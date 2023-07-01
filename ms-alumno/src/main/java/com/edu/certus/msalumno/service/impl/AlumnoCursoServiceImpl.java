@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.edu.certus.msalumno.client.CursoClient;
 import com.edu.certus.msalumno.dto.AlumnoCursoDto;
+import com.edu.certus.msalumno.dto.AlumnoCursoSendDto;
 import com.edu.certus.msalumno.dto.AlumnoCursosDto;
 import com.edu.certus.msalumno.dto.CursoDto;
 import com.edu.certus.msalumno.dto.CursoMinDto;
@@ -362,12 +363,12 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 
 
 	@Override
-	public ResponseDto createAlumnoCurso( AlumnoCursoDto alumnoCursoDto ) {
+	public ResponseDto createAlumnoCurso( AlumnoCursoSendDto alumnoCursoSendDto ) {
 
 		try {
 
-			Long idAlumno = alumnoCursoDto.getIdAlumno();
-			Long idCurso = alumnoCursoDto.getIdCurso();
+			Long idAlumno = alumnoCursoSendDto.getIdAlumno();
+			Long idCurso = alumnoCursoSendDto.getIdCurso();
 
 			if ( idAlumno == null | idCurso == null ) {
 				log.error( Constantes.ATTRIBUTE_MISSING + " [idAlumno/idCurso]" );
@@ -419,16 +420,17 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 
 
 	@Override
-	public ResponseDto updateAlumnoCurso( Long id, AlumnoCursoDto alumnoCursoDto ) {
+	public ResponseDto updateAlumnoCurso( AlumnoCursoSendDto alumnoCursoSendDto ) {
 		
 		try {
 
-			Long idAlumno = alumnoCursoDto.getIdAlumno();
-			Long idCurso = alumnoCursoDto.getIdCurso();
+			Long id = alumnoCursoSendDto.getId();
+			Long idAlumno = alumnoCursoSendDto.getIdAlumno();
+			Long idCurso = alumnoCursoSendDto.getIdCurso();
 
 			if ( idAlumno == null | idCurso == null ) {
-				log.error( Constantes.ATTRIBUTE_MISSING + " [idAlumno/idCurso]" );
-				return Util.getResponse( false, Constantes.ATTRIBUTE_MISSING + " [idAlumno/idCurso]", null );
+				log.error( Constantes.ATTRIBUTE_MISSING + " [id/idAlumno/idCurso]" );
+				return Util.getResponse( false, Constantes.ATTRIBUTE_MISSING + " [id/idAlumno/idCurso]", null );
 			}
 
 			AlumnoCursoEntity alumnoCursoEntityFound = alumnoCursoRepository.findById( id ).orElse(null);

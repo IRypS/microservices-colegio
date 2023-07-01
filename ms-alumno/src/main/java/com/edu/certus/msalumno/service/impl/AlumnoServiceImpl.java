@@ -108,7 +108,6 @@ public class AlumnoServiceImpl implements AlumnoService {
 
         try {
 
-            //TODO: Crear un util para construir errores y logs
             String nombres = alumnoDto.getNombres().trim();
 
             if( nombres.length() == 0 ) {

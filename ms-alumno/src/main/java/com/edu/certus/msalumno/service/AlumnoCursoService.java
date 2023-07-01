@@ -1,6 +1,6 @@
 package com.edu.certus.msalumno.service;
 
-import com.edu.certus.msalumno.dto.AlumnoCursoDto;
+import com.edu.certus.msalumno.dto.AlumnoCursoSendDto;
 import com.edu.certus.msalumno.dto.ResponseDto;
 
 public interface AlumnoCursoService {
@@ -68,8 +68,8 @@ public interface AlumnoCursoService {
 
 
 	/**
-	 * Crea un nuevo objeto <b>AlumnoCursoDto</b> (alumno - curso) 
-	 * @param alumnoCursoDto Objeto <b>AlumnoCursoDto</b> con el ID del alumno y el ID del curso a crear
+	 * Crea un nuevo objeto <b>AlumnoCursoSendDto</b> (alumno - curso) 
+	 * @param alumnoCursoSendDto Objeto <b>AlumnoCursoSendDto</b> con el ID del alumno y el ID del curso a crear
 	 * @return Objeto <b>ResponseDto</b> con los siguientes resultados: <br><br>
      *         - Código exitoso y registro creado. <br><br>
      *         - Código fallido si no se colocan ambos IDs. <br><br>
@@ -77,21 +77,20 @@ public interface AlumnoCursoService {
      *         - Código fallido si no se colocan IDs de un alumno y curso válido. <br><br>
      *         - Código fallido en caso de error. 
 	 */
-	public ResponseDto createAlumnoCurso( AlumnoCursoDto alumnoCursoDto );
+	public ResponseDto createAlumnoCurso( AlumnoCursoSendDto alumnoCursoSendDto );
 
 
 
 	/**
-	 * Actualiza un objeto <b>AlumnoCursoDto</b> (alumno - curso)  
-	 * @param id ID del registro a actualizar
-	 * @param alumnoCursoDto Objeto <b>AlumnoCursoDto</b> con el ID del alumno y el ID del curso a actualizar
+	 * Actualiza un objeto <b>AlumnoCursoSendDto</b> (alumno - curso)  
+	 * @param alumnoCursoSendDto Objeto <b>AlumnoCursoSendDto</b> con el ID del registro, ID del alumno y el ID del curso a actualizar
 	 * @return Objeto <b>ResponseDto</b> con los siguientes resultados: <br><br>
      *         - Código exitoso y registro actualizado. <br><br>
      *         - Código fallido si no se encuentran un registro con el ID ingresado. <br><br>
 	 * 		   - Código fallido si no se colocan ambos IDs. <br><br>
      *         - Código fallido en caso de error.
 	 */
-	public ResponseDto updateAlumnoCurso( Long id, AlumnoCursoDto alumnoCursoDto );
+	public ResponseDto updateAlumnoCurso( AlumnoCursoSendDto alumnoCursoSendDto );
 
 
 
