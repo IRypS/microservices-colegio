@@ -25,6 +25,9 @@ public class AlumnoCursoDto {
 	@ApiModelProperty( value = "Nombres de alumno", example = "Ramón Alberto Perez Lima", dataType = "string" )
 	private String nombreAlumno;
 
+	@ApiModelProperty( value = "Sexo alumno", example = "M", dataType = "string" )
+	private String sexoAlumno;
+
 	@ApiModelProperty( value = "Visibilidad del alumno", example = "true", dataType = "boolean" )
 	private Boolean estadoAlumno;
 
