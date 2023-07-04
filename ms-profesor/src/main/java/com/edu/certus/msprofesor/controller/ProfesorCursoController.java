@@ -79,6 +79,16 @@ public class ProfesorCursoController {
     
 
 
+    @ApiOperation( value = "Método para buscar los profesores de un curso",
+        notes = "- Buscará todos los cursos pertenecientes al ID del curso ingresado   " + 
+                "- No mostrará al curso si no tiene al menos un profesor para mostrar")
+    @GetMapping( "/cursos/{idCurso}" )
+    public ResponseEntity< ResponseDto > getProfesorCursosByCurso( @PathVariable("idCurso") Long idCurso ) {
+        return ResponseEntity.status( HttpStatus.OK ).body( profesorCursoService.getProfesorCursosByCurso( idCurso ) );
+    }
+    
+
+
     @ApiOperation( value = "Método para crear un registro ( profesor - curso ) ",
         notes = "- Se evaluará si existe un registro con los mismos datos y de no encontrarlo creará el registro   " + 
                 "- El atributo ID se crea una vez se registra en la base de datos" )

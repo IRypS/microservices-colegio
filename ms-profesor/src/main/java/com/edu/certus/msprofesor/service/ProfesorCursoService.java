@@ -67,6 +67,18 @@ public interface ProfesorCursoService {
 
 
 	/**
+	 * Obtiene un objeto <b>ProfesorCursosDto</b> (profesor - listado de cursos) a partir de un ID de curso
+	 * @param idCurso ID del profesor para buscar los registros pertenecientes
+	 * @return Objeto <b>ResponseDto</b> con los siguientes resultados: <br><br>
+     *         - Código exitoso y registro encontrado si se encuentran profesores para el curso <br><br>
+     *         - Código exitoso si no se encuentra el registro, los datos del curso o los datos de ningún profesor. <br><br>
+     *         - Código fallido en caso de error.
+	 */
+	public ResponseDto getProfesorCursosByCurso( Long idCurso );
+
+
+
+	/**
 	 * Crea un nuevo objeto <b>ProfesorCursoSendDto</b> (profesor - curso) 
 	 * @param profesorCursoSendDto Objeto <b>ProfesorCursoSendDto</b> con el ID del profesor y el ID del curso a crear
 	 * @return Objeto <b>ResponseDto</b> con los siguientes resultados: <br><br>

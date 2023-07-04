@@ -363,6 +363,72 @@ public class ProfesorCursoServiceImpl implements ProfesorCursoService {
 
 
 	@Override
+	public ResponseDto getProfesorCursosByCurso( Long idCurso ) {
+
+		try {
+			
+			List<ProfesorCursoEntity> listProfesoresCursoEntity = profesorCursoRepository.findAllByIdCurso( idCurso );
+
+			if ( listProfesoresCursoEntity == null ) {
+				return Util.getResponse( true, Constantes.NO_RECORDS_FOUND, null );
+			}
+
+			ResponseDto cursoResponse = cursoClient.getCursoTrueById( idCurso );
+			CursoDto cursoEntity = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
+			
+			if ( cursoResponse.getData() == null ) {
+				log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + idCurso );
+				return Util.getResponse(true, Constantes.NO_RECORD_FOUND + " | Curso ID: " + idCurso , null);
+			}
+
+
+			List<ProfesorCursoDto> listProfesorCurso = new ArrayList<ProfesorCursoDto>();
+			
+			for ( ProfesorCursoEntity record : listProfesoresCursoEntity ) {
+	
+				ProfesorEntity profesorEntity = profesorRepository.findById( record.getIdProfesor() ).orElse(null);
+
+				if ( profesorEntity == null ) {
+					log.error( Constantes.NO_RECORD_FOUND + " | Profesor ID: " + record.getIdProfesor() );
+					continue;
+				}
+
+
+				listProfesorCurso.add(
+					ProfesorCursoDto.builder()
+                        .id( record.getId() )
+						.idProfesor( profesorEntity.getId() )
+						.nombreProfesor( profesorEntity.getNombres() + " " + profesorEntity.getApellidos() )
+						.sexoProfesor( profesorEntity.getSexo() )
+						.estadoProfesor( profesorEntity.isEstado() )
+						.idCurso( cursoEntity.getId() )
+						.nombreCurso( cursoEntity.getDescripcion() )
+						.build()
+				);
+
+			}
+
+			if ( listProfesorCurso.size() == 0 ) {
+				return Util.getResponse( true, Constantes.NO_RECORDS_FOUND + 
+					": [ No hay profesores por mostrar para este curso ]", null );
+			}
+
+			return Util.getResponse( true, Constantes.OPERATION_SUCCESS, listProfesorCurso );
+
+		} catch ( RetryableException e ) {
+			log.error( "[ms-curso] " + Constantes.NO_SERVICE_AVAILABLE, e );
+			return Util.getResponse(false, "[ms-curso] " + Constantes.NO_SERVICE_AVAILABLE, null);
+		
+		} catch (Exception e) {
+			log.error( Constantes.OPERATION_FAILED, e );
+			return Util.getResponse(false, Constantes.OPERATION_FAILED, null);
+		}
+
+	}
+
+
+
+	@Override
 	public ResponseDto createProfesorCurso( ProfesorCursoSendDto profesorCursoSendDto ) {
 		
 		try {

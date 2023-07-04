@@ -28,5 +28,14 @@ public interface ProfesorCursoRepository extends JpaRepository< ProfesorCursoEnt
      */
     public List<ProfesorCursoEntity> findAllByIdProfesor( Long idProfesor );
 
+
+
+    /**
+     * Busca un listado de registros ( profesor - curso ) a partir de un ID de curso
+     * @param idProfesor ID del profesor a buscar en los registros
+     * @return Listado de objetos <b>ProfesorCursoEntity</b>
+     */
+    public List<ProfesorCursoEntity> findAllByIdCurso( Long idCurso );
+
     
 }
