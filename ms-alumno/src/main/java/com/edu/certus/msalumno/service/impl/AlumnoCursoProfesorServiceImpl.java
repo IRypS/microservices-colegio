@@ -52,11 +52,17 @@ public class AlumnoCursoProfesorServiceImpl implements AlumnoCursoProfesorServic
     public ResponseDto getAllAlumnoCursoProfesor() {
 
         try {
-
-            List<AlumnoCursoProfesorDto> listaAlumnoCursoProfesorDtos = new ArrayList<AlumnoCursoProfesorDto>();
-
-
+            
+            
             List<AlumnoCursoEntity> listAlumnoCursoEntity = alumnoCursoRepository.findAll();
+            
+            if ( listAlumnoCursoEntity.size() == 0 ) {
+                log.error( Constantes.NO_RECORDS_FOUND );
+                return Util.getResponse( true, Constantes.NO_RECORDS_FOUND, null);
+            }
+            
+            
+            List<AlumnoCursoProfesorDto> listaAlumnoCursoProfesorDtos = new ArrayList<AlumnoCursoProfesorDto>();
 
             for (AlumnoCursoEntity alumnoCursoEntity : listAlumnoCursoEntity) {
                 
