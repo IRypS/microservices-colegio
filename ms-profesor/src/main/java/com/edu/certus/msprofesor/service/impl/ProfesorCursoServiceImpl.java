@@ -70,12 +70,13 @@ public class ProfesorCursoServiceImpl implements ProfesorCursoService {
 				}
 	
 				ResponseDto responseDto = cursoClient.getCursoTrueById( record.getIdCurso() );
-				CursoDto cursoDto = mapper.convertValue( responseDto.getData(), CursoDto.class );
-
-				if ( cursoDto == null ) {
+				
+				if ( responseDto == null || responseDto.getData() == null ) {
 					log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + record.getIdCurso() );
 					continue;
 				}
+
+				CursoDto cursoDto = mapper.convertValue( responseDto.getData(), CursoDto.class );
 
 				listProfesorCurso.add(
 					ProfesorCursoDto.builder()
@@ -89,6 +90,11 @@ public class ProfesorCursoServiceImpl implements ProfesorCursoService {
 						.build()
 				);
 
+			}
+
+			if ( listProfesorCurso.size() == 0 ) {
+				log.error( Constantes.NO_RECORDS_FOUND );
+				return Util.getResponse( true, Constantes.NO_RECORDS_FOUND, null );
 			}
 
 			return Util.getResponse( true, Constantes.OPERATION_SUCCESS, listProfesorCurso );
@@ -141,12 +147,13 @@ public class ProfesorCursoServiceImpl implements ProfesorCursoService {
 				for ( ProfesorCursoEntity record : listaCursos ) {
 
 					ResponseDto cursoResponse = cursoClient.getCursoTrueById( record.getIdCurso() );
-					CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
-
-					if ( cursoResponse.getData() == null ) {
+					
+					if ( cursoResponse == null || cursoResponse.getData() == null ) {
 						log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + record.getIdCurso() );
 						continue;
                     }
+
+					CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 
                     listaCursosDtos.add(
                         CursoMinDto.builder()
@@ -173,6 +180,11 @@ public class ProfesorCursoServiceImpl implements ProfesorCursoService {
 						.build()
 				);
 
+			}
+
+			if ( listProfesorCursos.size() == 0 ) {
+				log.error( Constantes.NO_RECORDS_FOUND );
+				return Util.getResponse( true, Constantes.NO_RECORDS_FOUND, null );
 			}
 
 			return Util.getResponse( true, Constantes.OPERATION_SUCCESS, listProfesorCursos );
@@ -210,12 +222,13 @@ public class ProfesorCursoServiceImpl implements ProfesorCursoService {
 			}
 
 			ResponseDto cursoResponse = cursoClient.getCursoTrueById( profesorCursoEntity.getIdCurso() );
-			CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 			
-			if ( cursoResponse.getData() == null ) {
+			if ( cursoResponse == null || cursoResponse.getData() == null ) {
 				log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + profesorCursoEntity.getIdCurso() );
 				return Util.getResponse(true, Constantes.NO_RECORD_FOUND + " | Curso ID: " + profesorCursoEntity.getIdCurso() , null);
 			}
+
+			CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 
 			ProfesorCursoDto profesorCursoDto = ProfesorCursoDto.builder()
                 .id( id )
@@ -262,12 +275,13 @@ public class ProfesorCursoServiceImpl implements ProfesorCursoService {
 			}
 
 			ResponseDto cursoResponse = cursoClient.getCursoTrueById( idCurso );
-			CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 			
-			if ( cursoResponse.getData() == null ) {
+			if ( cursoResponse == null || cursoResponse.getData() == null ) {
 				log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + idCurso );
 				return Util.getResponse(true, Constantes.NO_RECORD_FOUND + " | Curso ID: " + idCurso , null);
 			}
+
+			CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 
 			ProfesorCursoDto profesorCursoDto = ProfesorCursoDto.builder()
                 .id( profesorCursoEntity.getId()  )
@@ -318,13 +332,14 @@ public class ProfesorCursoServiceImpl implements ProfesorCursoService {
 			for ( ProfesorCursoEntity record : listProfesorCursoEntity ) {
 	
 				ResponseDto responseDto = cursoClient.getCursoTrueById( record.getIdCurso() );
-				CursoDto cursoDto = mapper.convertValue( responseDto.getData(), CursoDto.class );
-
-				if ( cursoDto == null ) {
+				
+				if ( responseDto == null || responseDto.getData() == null ) {
 					log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + record.getIdCurso() );
 					continue;
 				}
 
+				CursoDto cursoDto = mapper.convertValue( responseDto.getData(), CursoDto.class );
+				
 				listaCursosDtos.add(
 					CursoMinDto.builder()
 						.id( cursoDto.getId() )
@@ -374,12 +389,13 @@ public class ProfesorCursoServiceImpl implements ProfesorCursoService {
 			}
 
 			ResponseDto cursoResponse = cursoClient.getCursoTrueById( idCurso );
-			CursoDto cursoEntity = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 			
-			if ( cursoResponse.getData() == null ) {
+			if ( cursoResponse == null || cursoResponse.getData() == null ) {
 				log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + idCurso );
 				return Util.getResponse(true, Constantes.NO_RECORD_FOUND + " | Curso ID: " + idCurso , null);
 			}
+
+			CursoDto cursoEntity = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 
 
 			List<ProfesorCursoDto> listProfesorCurso = new ArrayList<ProfesorCursoDto>();

@@ -92,7 +92,7 @@ public class ProfesorController {
         notes = "- El borrado es lógico (cambia el estado de **true** a **false**)   " +
                 "- Solo borrará los profesores visibles (no encontrá el registro si ya se encuentra borrado)" )
     @DeleteMapping( "/{id}" )
-    public ResponseEntity< ResponseDto > deleteAlumnoById( @PathVariable("id") Long idProfesor ) {
+    public ResponseEntity< ResponseDto > deleteProfesorById( @PathVariable("id") Long idProfesor ) {
         return ResponseEntity.status( HttpStatus.OK ).body( profesorService.deleteProfesorById( idProfesor ) );
     }
 
