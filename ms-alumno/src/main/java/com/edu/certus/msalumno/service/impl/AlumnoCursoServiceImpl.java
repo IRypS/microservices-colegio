@@ -70,13 +70,14 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 				}
 	
 				ResponseDto responseDto = cursoClient.getCursoTrueById( record.getIdCurso() );
-				CursoDto cursoDto = mapper.convertValue( responseDto.getData(), CursoDto.class );
-
-				if ( cursoDto == null ) {
+				
+				if ( responseDto == null || responseDto.getData() == null ) {
 					log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + record.getIdCurso() );
 					continue;
 				}
 
+				CursoDto cursoDto = mapper.convertValue( responseDto.getData(), CursoDto.class );
+				
 				listAlumnoCurso.add(
 					AlumnoCursoDto.builder()
                         .id( record.getId() )
@@ -89,6 +90,11 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 						.build()
 				);
 
+			}
+
+			if ( listAlumnoCurso.size() == 0 ) {
+				log.error( Constantes.NO_RECORDS_FOUND );
+				return Util.getResponse( true, Constantes.NO_RECORDS_FOUND, null );
 			}
 
 			return Util.getResponse( true, Constantes.OPERATION_SUCCESS, listAlumnoCurso );
@@ -141,12 +147,13 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 				for ( AlumnoCursoEntity record : listaCursos ) {
 
 					ResponseDto cursoResponse = cursoClient.getCursoTrueById( record.getIdCurso() );
-					CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
-
-					if ( cursoResponse.getData() == null ) {
+					
+					if ( cursoResponse == null || cursoResponse.getData() == null ) {
 						log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + record.getIdCurso() );
 						continue;
                     }
+
+					CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 
                     listaCursosDtos.add(
                         CursoMinDto.builder()
@@ -173,6 +180,11 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 						.build()
 				);
 
+			}
+
+			if ( listAlumnoCursos.size() == 0 ) {
+				log.error( Constantes.NO_RECORDS_FOUND );
+				return Util.getResponse( true, Constantes.NO_RECORDS_FOUND, null );
 			}
 
 			return Util.getResponse( true, Constantes.OPERATION_SUCCESS, listAlumnoCursos );
@@ -210,12 +222,13 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 			}
 
 			ResponseDto cursoResponse = cursoClient.getCursoTrueById( alumnoCursoEntity.getIdCurso() );
-			CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 			
-			if ( cursoResponse.getData() == null ) {
+			if ( cursoResponse == null || cursoResponse.getData() == null ) {
 				log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + alumnoCursoEntity.getIdCurso() );
 				return Util.getResponse(true, Constantes.NO_RECORD_FOUND + " | Curso ID: " + alumnoCursoEntity.getIdCurso() , null);
 			}
+
+			CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 
 			AlumnoCursoDto alumnoCursoDto = AlumnoCursoDto.builder()
                 .id( id )
@@ -262,12 +275,13 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 			}
 
 			ResponseDto cursoResponse = cursoClient.getCursoTrueById( idCurso );
-			CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 			
-			if ( cursoResponse.getData() == null ) {
+			if ( cursoResponse == null || cursoResponse.getData() == null ) {
 				log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + idCurso );
 				return Util.getResponse(true, Constantes.NO_RECORD_FOUND + " | Curso ID: " + idCurso , null);
 			}
+
+			CursoDto cursoDto = mapper.convertValue( cursoResponse.getData(), CursoDto.class );
 
 			AlumnoCursoDto alumnoCursoDto = AlumnoCursoDto.builder()
                 .id( alumnoCursoEntity.getId()  )
@@ -318,12 +332,13 @@ public class AlumnoCursoServiceImpl implements AlumnoCursoService {
 			for ( AlumnoCursoEntity record : listAlumnoCursoEntity ) {
 	
 				ResponseDto responseDto = cursoClient.getCursoTrueById( record.getIdCurso() );
-				CursoDto cursoDto = mapper.convertValue( responseDto.getData(), CursoDto.class );
-
-				if ( cursoDto == null ) {
+				
+				if ( responseDto == null || responseDto.getData() == null ) {
 					log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + record.getIdCurso() );
 					continue;
 				}
+
+				CursoDto cursoDto = mapper.convertValue( responseDto.getData(), CursoDto.class );
 
 				listaCursosDtos.add(
 					CursoMinDto.builder()

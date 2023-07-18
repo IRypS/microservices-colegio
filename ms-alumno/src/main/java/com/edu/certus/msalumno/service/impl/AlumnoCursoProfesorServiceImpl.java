@@ -74,20 +74,22 @@ public class AlumnoCursoProfesorServiceImpl implements AlumnoCursoProfesorServic
                 }
 
                 ResponseDto responseCursoDto = cursoClient.getCursoTrueById( alumnoCursoEntity.getIdCurso() );
-                CursoDto cursoDto = mapper.convertValue( responseCursoDto.getData(), CursoDto.class );
                 
-                if ( responseCursoDto.getData() == null ) {
+                if ( responseCursoDto == null || responseCursoDto.getData() == null ) {
                     log.error( Constantes.NO_RECORD_FOUND + " | Curso ID: " + alumnoCursoEntity.getIdCurso() );
                     continue;
                 }
+                
+                CursoDto cursoDto = mapper.convertValue( responseCursoDto.getData(), CursoDto.class );
 
                 ResponseDto responseProfesorDto = profesorClient.getProfesorCursosByCurso( alumnoCursoEntity.getIdCurso() );
-				List<ProfesorCursoDto> listaProfesorCursoDto = mapper.convertValue( responseProfesorDto.getData(), new TypeReference< List<ProfesorCursoDto> >() {} );
-
-                if ( listaProfesorCursoDto.size() == 0 ) {
+                
+                if ( responseProfesorDto == null || responseProfesorDto.getData() == null ) {
                     log.error( Constantes.NO_RECORD_FOUND + " | No se encontraron profesores | Curso ID: " + alumnoCursoEntity.getIdCurso() );
                     continue;
                 }
+
+                List<ProfesorCursoDto> listaProfesorCursoDto = mapper.convertValue( responseProfesorDto.getData(), new TypeReference< List<ProfesorCursoDto> >() {} );
 
 
                 listaProfesorCursoDto.forEach( profesorCurso -> {
@@ -108,6 +110,11 @@ public class AlumnoCursoProfesorServiceImpl implements AlumnoCursoProfesorServic
 
                 });
                 
+            }
+
+            if ( listaAlumnoCursoProfesorDtos.size() == 0 ) {
+                log.error( Constantes.NO_RECORDS_FOUND );
+                return Util.getResponse( true, Constantes.NO_RECORDS_FOUND, null);
             }
 
             return Util.getResponse(true, Constantes.OPERATION_SUCCESS, listaAlumnoCursoProfesorDtos);
