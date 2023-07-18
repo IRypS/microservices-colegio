@@ -67,12 +67,7 @@
 		    <scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
+		<!-- Config  -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
@@ -81,6 +76,24 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+		</dependency>
+
+		<!-- Unit Test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
 		</dependency>
 
 	</dependencies>
@@ -101,6 +114,7 @@
 
 	<build>
 		<plugins>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -113,6 +127,78 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.7</version>
+				<executions>
+					<execution>
+						<id>jacoco-initialize</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>jacoco-site</id>
+						<phase>package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<rule>
+									<excludes>
+										<exclude>**/config/**</exclude>
+										<exclude>**/entity/**</exclude>
+										<exclude>**/repository/**</exclude>
+										<exclude>**/util/**</exclude>
+										<exclude>**/application/**</exclude>
+										<exclude>**/builder/**</exclude>
+										<exclude>**/test/**</exclude>
+										<exclude>**/logger/**</exclude>
+									</excludes>
+								</rule>
+							</rules>
+						</configuration>
+					</execution>
+					<execution>
+						<id>jacoco-check</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<rule>
+									<excludes>
+										<exclude>**/config/**</exclude>
+										<exclude>**/entity/**</exclude>
+										<exclude>**/repository/**</exclude>
+										<exclude>**/util/**</exclude>
+										<exclude>**/application/**</exclude>
+										<exclude>**/builder/**</exclude>
+										<exclude>**/test/**</exclude>
+										<exclude>**/logger/**</exclude>
+									</excludes>
+									<element>BUNDLE</element>
+									<limits>
+										<limit>
+											<counter>INSTRUCTION</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>0.8</minimum>
+										</limit>
+									</limits>
+								</rule>
+							</rules>
+							<excludes>
+								<exclude>com/edu/certus/mscurso/entity/**</exclude>
+								<exclude>com/edu/certus/mscurso/config/**</exclude>
+							</excludes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 

@@ -104,11 +104,11 @@ public class CursoServiceImpl implements CursoService {
 
         try {
 
-            if ( cursoDto.getDescripcion() == null ) {
+            if ( cursoDto.getDescripcion() == null || cursoDto.getDescripcion().trim().length() == 0) {
                 log.error( Constantes.ATTRIBUTE_MISSING + " [descripcion]" );
                 return Util.getResponse( false, Constantes.ATTRIBUTE_MISSING + " [descripcion]", null );
             }
-
+            
             String descripcion = cursoDto.getDescripcion().trim();
 
             CursoEntity cursoEntityFound = cursoRepository.findByDescripcionAndEstadoTrue( descripcion );
@@ -149,12 +149,13 @@ public class CursoServiceImpl implements CursoService {
                 return Util.getResponse( false, Constantes.NO_RECORD_FOUND, null );
             }
 
-            String descripcion = cursoDto.getDescripcion().trim();
-
-            if( descripcion.length() == 0 ) {
+            
+            if ( cursoDto.getDescripcion() == null || cursoDto.getDescripcion().trim().length() == 0) {
                 log.error( Constantes.ATTRIBUTE_MISSING + " [descripcion]" );
                 return Util.getResponse( false, Constantes.ATTRIBUTE_MISSING + " [descripcion]", null );
             }
+            
+            String descripcion = cursoDto.getDescripcion().trim();
 
             CursoEntity cursoEntityDuplicatedFound = cursoRepository.findByDescripcionAndEstadoTrue( descripcion );
 
