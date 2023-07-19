@@ -62,3 +62,18 @@ services:
       - EUREKA_URI=http://eureka:9000/eureka/
     depends_on:
       - mscurso
+
+  msalumno:
+    container_name: ms-alumno
+    image: ms-alumno:latest
+    build:
+      context: ./ms-alumno
+      dockerfile: dockerfile
+    ports:
+      - 9002:9002
+    environment:
+      - PERFIL=docker
+      - CONFIG_URI=http://configsv:9010
+      - EUREKA_URI=http://eureka:9000/eureka/
+    depends_on:
+      - msprofesor
