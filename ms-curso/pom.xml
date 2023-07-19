@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.edu.certus</groupId>
 	<artifactId>ms-curso</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>ms-curso</name>
 	<description>Microservicio curso</description>
 	<properties>

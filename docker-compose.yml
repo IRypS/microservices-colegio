@@ -32,3 +32,18 @@ services:
       - EUREKA_URI=http://eureka:9000/eureka/
     depends_on:
       - eureka
+
+  mscurso:
+    container_name: ms-curso
+    image: ms-curso:latest
+    build:
+      context: ./ms-curso
+      dockerfile: dockerfile
+    ports:
+      - 9001:9001
+    environment:
+      - PERFIL=docker
+      - CONFIG_URI=http://configsv:9010
+      - EUREKA_URI=http://eureka:9000/eureka/
+    depends_on:
+      - configsv
