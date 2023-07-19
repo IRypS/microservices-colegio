@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.edu.certus</groupId>
 	<artifactId>ms-config-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>ms-config-server</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Servidor de configuración para los microservicios de colegio</description>
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2021.0.8</spring-cloud.version>

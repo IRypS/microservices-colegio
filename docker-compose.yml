@@ -15,3 +15,20 @@ services:
       - EUREKA_HOSTNAME=eureka
       - PROTOCOL=http
       - PORT=9000
+
+  configsv:
+    container_name: ms-config-server
+    image: ms-config-sv:latest
+    build:
+      context: ./ms-config-server
+      dockerfile: dockerfile
+    ports:
+      - 9010:9010
+    environment:
+      - PERFIL=docker
+      - GITHUB_CONFIG_REPO=https://github.com/IRypS/ms-config-data.git
+      - GITHUB_USERNAME=IRypS
+      - GITHUB_TOKEN=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
+      - EUREKA_URI=http://eureka:9000/eureka/
+    depends_on:
+      - eureka
