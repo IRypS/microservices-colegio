@@ -46,6 +46,7 @@ services:
       - CONFIG_URI=http://configsv:9010
       - EUREKA_URI=http://eureka:9000/eureka/
     depends_on:
+      - eureka
       - configsv
 
   msprofesor:
@@ -61,6 +62,8 @@ services:
       - CONFIG_URI=http://configsv:9010
       - EUREKA_URI=http://eureka:9000/eureka/
     depends_on:
+      - eureka
+      - configsv
       - mscurso
 
   msalumno:
@@ -76,6 +79,9 @@ services:
       - CONFIG_URI=http://configsv:9010
       - EUREKA_URI=http://eureka:9000/eureka/
     depends_on:
+      - eureka
+      - configsv
+      - mscurso
       - msprofesor
 
   msgateway:
@@ -90,5 +96,9 @@ services:
       - PERFIL=docker
       - EUREKA_URI=http://eureka:9000/eureka/
     depends_on:
+      - eureka
+      - configsv
+      - mscurso
+      - msprofesor
       - msalumno
     
