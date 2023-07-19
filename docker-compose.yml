@@ -45,6 +45,9 @@ services:
       - PERFIL=docker
       - CONFIG_URI=http://configsv:9010
       - EUREKA_URI=http://eureka:9000/eureka/
+      - SQLSV_DATABASE_URL=jdbc:sqlserver://ColegioMicroserviceIRypS.mssql.somee.com;databaseName=ColegioMicroserviceIRypS;TrustServerCertificate=True;?&useSSL=false
+      - SQLSV_DATABASE_USERNAME=IRypS_SQLLogin_2
+      - SQLSV_DATABASE_PASSWORD=sd34wlloox
     depends_on:
       - eureka
       - configsv
@@ -61,6 +64,9 @@ services:
       - PERFIL=docker
       - CONFIG_URI=http://configsv:9010
       - EUREKA_URI=http://eureka:9000/eureka/
+      - MYSQL_DATABASE_URL=jdbc:mysql://containers-us-west-37.railway.app:6561/colegio_microservices?serverTimezone=GMT-5
+      - MYSQL_DATABASE_USERNAME=root
+      - MYSQL_DATABASE_PASSWORD=eki0XsPL8r10LsjcQSek
     depends_on:
       - eureka
       - configsv
@@ -78,6 +84,9 @@ services:
       - PERFIL=docker
       - CONFIG_URI=http://configsv:9010
       - EUREKA_URI=http://eureka:9000/eureka/
+      - MYSQL_DATABASE_URL=jdbc:mysql://containers-us-west-37.railway.app:6561/colegio_microservices?serverTimezone=GMT-5
+      - MYSQL_DATABASE_USERNAME=root
+      - MYSQL_DATABASE_PASSWORD=eki0XsPL8r10LsjcQSek
     depends_on:
       - eureka
       - configsv
