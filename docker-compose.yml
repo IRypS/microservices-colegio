@@ -77,3 +77,18 @@ services:
       - EUREKA_URI=http://eureka:9000/eureka/
     depends_on:
       - msprofesor
+
+  msgateway:
+    container_name: ms-gateway
+    image: ms-gateway:latest
+    build:
+      context: ./ms-gateway
+      dockerfile: dockerfile
+    ports:
+      - 9005:9005
+    environment:
+      - PERFIL=docker
+      - EUREKA_URI=http://eureka:9000/eureka/
+    depends_on:
+      - msalumno
+    
