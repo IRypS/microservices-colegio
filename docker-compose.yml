@@ -1,0 +1,17 @@
+version: '1.0'
+
+services:
+
+  eureka:
+    container_name: ms-discovery
+    image: ms-discovery:latest
+    build:
+      context: ./ms-discovery
+      dockerfile: dockerfile
+    ports:
+      - 9000:9000
+    environment:
+      - PERFIL=docker
+      - EUREKA_HOSTNAME=eureka
+      - PROTOCOL=http
+      - PORT=9000

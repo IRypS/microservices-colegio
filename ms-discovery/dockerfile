@@ -1,0 +1,7 @@
+FROM openjdk:11-jdk-slim
+
+COPY target/ms-discovery-*.jar discovery.jar
+
+EXPOSE 9000
+
+ENTRYPOINT ["java", "-jar", "discovery.jar"]
