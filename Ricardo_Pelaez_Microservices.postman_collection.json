@@ -1,0 +1,2031 @@
+{
+	"info": {
+		"_postman_id": "f8804391-1613-447f-af3e-f8a1a27e2675",
+		"name": "Ricardo_Pelaez_Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27127339"
+	},
+	"item": [
+		{
+			"name": "Microservicios",
+			"item": [
+				{
+					"name": "Curso",
+					"item": [
+						{
+							"name": "Leer los cursos VISIBLES",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/v1/curso",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"v1",
+										"curso"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Leer TODOS los cursos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/v1/curso/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"v1",
+										"curso",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar curso VISIBLE por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/v1/curso/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"v1",
+										"curso",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar curso por ID (Sin importar si es visible o no)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/v1/curso/all/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"v1",
+										"curso",
+										"all",
+										"7"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear curso",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"descripcion\": \"Algoritmos\",\r\n  \"estado\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9001/v1/curso",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"v1",
+										"curso"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar curso",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 5,\r\n    \"descripcion\": \"Matemáticas aplicadas al desarrollo de software\",\r\n    \"estado\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9001/v1/curso",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"v1",
+										"curso"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar curso",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/v1/curso/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"v1",
+										"curso",
+										"7"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "# Microservicio curso\n\n---\n\nMicroservicio encargado de consultar y modificar los datos sobre curso en la base de datos.\n\n**Motor de base de datos:** SQL Server\n\n**Puerto predeterminado:** 9001\n\n**Path principal:** /v1/curso"
+				},
+				{
+					"name": "Profesor",
+					"item": [
+						{
+							"name": "Profesor-Curso",
+							"item": [
+								{
+									"name": "Leer registros profesor curso",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9003/v1/profesor-curso",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9003",
+											"path": [
+												"v1",
+												"profesor-curso"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Leer profesores y sus cursos",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9003/v1/profesor-curso/profesores",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9003",
+											"path": [
+												"v1",
+												"profesor-curso",
+												"profesores"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Buscar registro por ID de registro",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9003/v1/profesor-curso/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9003",
+											"path": [
+												"v1",
+												"profesor-curso",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Buscar registro por ID Profesor & ID Curso",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9003/v1/profesor-curso/profesores/1/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9003",
+											"path": [
+												"v1",
+												"profesor-curso",
+												"profesores",
+												"1",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Obtener registros por ID Profesor",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9003/v1/profesor-curso/profesores/2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9003",
+											"path": [
+												"v1",
+												"profesor-curso",
+												"profesores",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Obtener registros por ID curso",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9003/v1/profesor-curso/cursos/2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9003",
+											"path": [
+												"v1",
+												"profesor-curso",
+												"cursos",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Crear registro profesor curso",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"idProfesor\": 2,\r\n  \"idCurso\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:9003/v1/profesor-curso",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9003",
+											"path": [
+												"v1",
+												"profesor-curso"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Editar registro profesor curso",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 6,\r\n  \"idProfesor\": 2,\r\n  \"idCurso\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:9003/v1/profesor-curso",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9003",
+											"path": [
+												"v1",
+												"profesor-curso"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Eliminar registro por ID de registro",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9003/v1/profesor-curso/8",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9003",
+											"path": [
+												"v1",
+												"profesor-curso",
+												"8"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Borrar registro por ID Profesor & ID Curso",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9003/v1/profesor-curso/profesores/3/4",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9003",
+											"path": [
+												"v1",
+												"profesor-curso",
+												"profesores",
+												"3",
+												"4"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "## Relación profesor - curso\n\n---\n\nRelación entre los datos de profesores y cursos\n\n**Motor de base de datos:** Mysql\n\n**Puerto predeterminado:** 9003\n\n**Path principal:** /v1/profesor-curso"
+						},
+						{
+							"name": "Leer profesores VISIBLES",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9003/v1/profesor",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9003",
+									"path": [
+										"v1",
+										"profesor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Leer TODOS los profesores",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9003/v1/profesor/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9003",
+									"path": [
+										"v1",
+										"profesor",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar profesor VISIBLE por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9003/v1/profesor/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9003",
+									"path": [
+										"v1",
+										"profesor",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar profesor por ID (Sin importar si es visible o no)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9003/v1/profesor/all/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9003",
+									"path": [
+										"v1",
+										"profesor",
+										"all",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear profesor",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombres\": \"Jose\",\r\n  \"apellidos\": \"Fuentes\",\r\n  \"sexo\": \"M\",\r\n  \"estado\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9003/v1/profesor",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9003",
+									"path": [
+										"v1",
+										"profesor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar profesor",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 4,\r\n    \"nombres\": \"Jose\",\r\n    \"apellidos\": \"Fuentes\",\r\n    \"sexo\": \"M\",\r\n    \"estado\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9003/v1/profesor",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9003",
+									"path": [
+										"v1",
+										"profesor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar profesor",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9003/v1/profesor/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9003",
+									"path": [
+										"v1",
+										"profesor",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "# Microservicio profesor\n\n---\n\nMicroservicio encargado de consultar y modificar los datos sobre profesor en la base de datos.\n\n**Motor de base de datos:** Mysql\n\n**Puerto predeterminado:** 9003\n\n**Path principal:** /v1/profesor"
+				},
+				{
+					"name": "Alumno",
+					"item": [
+						{
+							"name": "Alumno-Curso",
+							"item": [
+								{
+									"name": "Leer registro alumno curso",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9002/v1/alumno-curso",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9002",
+											"path": [
+												"v1",
+												"alumno-curso"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Leer alumnos y sus cursos",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9002/v1/alumno-curso/alumnos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9002",
+											"path": [
+												"v1",
+												"alumno-curso",
+												"alumnos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Buscar registro por ID de registro",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9002/v1/alumno-curso/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9002",
+											"path": [
+												"v1",
+												"alumno-curso",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Buscar registro por ID Alumno & ID Curso",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9002/v1/alumno-curso/alumnos/1/2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9002",
+											"path": [
+												"v1",
+												"alumno-curso",
+												"alumnos",
+												"1",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Obtener registros or ID Alumno",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9002/v1/alumno-curso/alumnos/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9002",
+											"path": [
+												"v1",
+												"alumno-curso",
+												"alumnos",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Crear registro alumno curso",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"idAlumno\": 1,\r\n  \"idCurso\": 5\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:9002/v1/alumno-curso",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9002",
+											"path": [
+												"v1",
+												"alumno-curso"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Editar registro alumno curso",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 6,\r\n    \"idAlumno\": 1,\r\n    \"idCurso\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:9002/v1/alumno-curso",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9002",
+											"path": [
+												"v1",
+												"alumno-curso"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Eliminar registro por ID de registro",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9002/v1/alumno-curso/10",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9002",
+											"path": [
+												"v1",
+												"alumno-curso",
+												"10"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Eliminar registro por ID Alumno & ID Curso",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9002/v1/alumno-curso/alumnos/5/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9002",
+											"path": [
+												"v1",
+												"alumno-curso",
+												"alumnos",
+												"5",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "## Relación alumno- curso\n\n---\n\nRelación entre los datos de alumnos y cursos\n\n**Motor de base de datos:** Mysql\n\n**Puerto predeterminado:** 9002\n\n**Path principal:** /v1/alumno-curso"
+						},
+						{
+							"name": "Alumno-Curso-Profesor",
+							"item": [
+								{
+									"name": "Leer registro alumno curso profesor",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9002/v1/alumno-curso-profesor",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9002",
+											"path": [
+												"v1",
+												"alumno-curso-profesor"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "## Relación alumno - curso - profesor\n\n---\n\nRelación entre los datos de alumnos,cursos y profesores\n\n**Motor de base de datos:** Mysql\n\n**Puerto predeterminado:** 9002\n\n**Path principal:** /v1/alumno-curso-profesor\n\nEndFragment"
+						},
+						{
+							"name": "Leer todos los alumnos VISIBLES",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9002/v1/alumno",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"v1",
+										"alumno"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Leer TODOS los alumnos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9002/v1/alumno/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"v1",
+										"alumno",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar alumno VISIBLE por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9002/v1/alumno/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"v1",
+										"alumno",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar alumno por ID (Sin importar si es visible o no)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9002/v1/alumno/all/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"v1",
+										"alumno",
+										"all",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear alumno",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombres\": \"Sorana\",\r\n    \"apellidos\": \"Magbel\",\r\n    \"sexo\": \"F\",\r\n    \"estado\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9002/v1/alumno",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"v1",
+										"alumno"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar alumno",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n      \"id\": 8,\r\n      \"nombres\": \"Sorana 2\",\r\n      \"apellidos\": \"Magbel\",\r\n      \"sexo\": \"F\",\r\n      \"estado\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9002/v1/alumno",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"v1",
+										"alumno"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar alumno",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9002/v1/alumno/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9002",
+									"path": [
+										"v1",
+										"alumno",
+										"9"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "# Microservicio alumno\n\n---\n\nMicroservicio encargado de consultar y modificar los datos sobre alumno en la base de datos.\n\n**Motor de base de datos:** Mysql\n\n**Puerto predeterminado:** 9002\n\n**Path principal:** /v1/alumno"
+				}
+			]
+		},
+		{
+			"name": "API GATEWAY",
+			"item": [
+				{
+					"name": "Curso",
+					"item": [
+						{
+							"name": "Leer los cursos VISIBLES",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-curso/v1/curso",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-curso",
+										"v1",
+										"curso"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Leer TODOS los cursos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-curso/v1/curso/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-curso",
+										"v1",
+										"curso",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar curso VISIBLE por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-curso/v1/curso/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-curso",
+										"v1",
+										"curso",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar curso por ID (Sin importar si es visible o no)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-curso/v1/curso/all/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-curso",
+										"v1",
+										"curso",
+										"all",
+										"7"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear curso",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"descripcion\": \"Algoritmos\",\r\n  \"estado\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/ms-curso/v1/curso",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-curso",
+										"v1",
+										"curso"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar curso",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 5,\r\n    \"descripcion\": \"Matemáticas aplicadas al desarrollo de software II\",\r\n    \"estado\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/ms-curso/v1/curso",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-curso",
+										"v1",
+										"curso"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar curso",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-curso/v1/curso/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-curso",
+										"v1",
+										"curso",
+										"7"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "# \\[API GATEWAY\\] Microservicio curso\n\n---\n\nMicroservicio encargado de consultar y modificar los datos sobre curso en la base de datos.\n\n**Motor de base de datos:** SQL Server\n\n**Puerto predeterminado:** 9005\n\n**Path principal:** /ms-curso/v1/curso\n\nEndFragment"
+				},
+				{
+					"name": "Profesor",
+					"item": [
+						{
+							"name": "Profesor-Curso",
+							"item": [
+								{
+									"name": "Leer registros profesor curso",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-profesor/v1/profesor-curso",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-profesor",
+												"v1",
+												"profesor-curso"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Leer profesores y sus cursos",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-profesor/v1/profesor-curso/profesores",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-profesor",
+												"v1",
+												"profesor-curso",
+												"profesores"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Buscar registro por ID de registro",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-profesor/v1/profesor-curso/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-profesor",
+												"v1",
+												"profesor-curso",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Buscar registro por ID Profesor & ID Curso",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-profesor/v1/profesor-curso/profesores/1/2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-profesor",
+												"v1",
+												"profesor-curso",
+												"profesores",
+												"1",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Obtener registros por ID Profesor",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-profesor/v1/profesor-curso/profesores/2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-profesor",
+												"v1",
+												"profesor-curso",
+												"profesores",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Obtener registros por ID curso",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-profesor/v1/profesor-curso/cursos/2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-profesor",
+												"v1",
+												"profesor-curso",
+												"cursos",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Crear registro profesor curso",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"idProfesor\": 2,\r\n  \"idCurso\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:9005/ms-profesor/v1/profesor-curso",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-profesor",
+												"v1",
+												"profesor-curso"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Editar registro profesor curso",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 6,\r\n  \"idProfesor\": 2,\r\n  \"idCurso\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:9005/ms-profesor/v1/profesor-curso",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-profesor",
+												"v1",
+												"profesor-curso"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Eliminar registro por ID de registro",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-profesor/v1/profesor-curso/8",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-profesor",
+												"v1",
+												"profesor-curso",
+												"8"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Borrar registro por ID Profesor & ID Curso",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-profesor/v1/profesor-curso/profesores/3/4",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-profesor",
+												"v1",
+												"profesor-curso",
+												"profesores",
+												"3",
+												"4"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "## \\[API GATEWAY\\] Relación profesor - curso\n\n---\n\nRelación entre los datos de profesores y cursos\n\n**Motor de base de datos:** Mysql\n\n**Puerto predeterminado:** 9005\n\n**Path principal:** /ms-profesor/v1/profesor-curso"
+						},
+						{
+							"name": "Leer profesores VISIBLES",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-profesor/v1/profesor",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-profesor",
+										"v1",
+										"profesor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Leer TODOS los profesores",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-profesor/v1/profesor/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-profesor",
+										"v1",
+										"profesor",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar profesor VISIBLE por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-profesor/v1/profesor/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-profesor",
+										"v1",
+										"profesor",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar profesor por ID (Sin importar si es visible o no)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-profesor/v1/profesor/all/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-profesor",
+										"v1",
+										"profesor",
+										"all",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear profesor",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombres\": \"Jose\",\r\n  \"apellidos\": \"Fuentes\",\r\n  \"sexo\": \"M\",\r\n  \"estado\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/ms-profesor/v1/profesor",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-profesor",
+										"v1",
+										"profesor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar profesor",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 4,\r\n    \"nombres\": \"Jose\",\r\n    \"apellidos\": \"Fuentes\",\r\n    \"sexo\": \"M\",\r\n    \"estado\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/ms-profesor/v1/profesor",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-profesor",
+										"v1",
+										"profesor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar profesor",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-profesor/v1/profesor/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-profesor",
+										"v1",
+										"profesor",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "# \\[API GATEWAY\\] Microservicio profesor\n\n---\n\nMicroservicio encargado de consultar y modificar los datos sobre profesor en la base de datos.\n\n**Motor de base de datos:** Mysql\n\n**Puerto predeterminado:** 9005\n\n**Path principal:** /ms-profesor/v1/profesor"
+				},
+				{
+					"name": "Alumno",
+					"item": [
+						{
+							"name": "Alumno-Curso",
+							"item": [
+								{
+									"name": "Leer registro alumno curso",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-alumno/v1/alumno-curso",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-alumno",
+												"v1",
+												"alumno-curso"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Leer alumnos y sus cursos",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-alumno/v1/alumno-curso/alumnos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-alumno",
+												"v1",
+												"alumno-curso",
+												"alumnos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Buscar registro por ID de registro",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-alumno/v1/alumno-curso/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-alumno",
+												"v1",
+												"alumno-curso",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Buscar registro por ID Alumno & ID Curso",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-alumno/v1/alumno-curso/alumnos/1/2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-alumno",
+												"v1",
+												"alumno-curso",
+												"alumnos",
+												"1",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Obtener registros or ID Alumno",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-alumno/v1/alumno-curso/alumnos/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-alumno",
+												"v1",
+												"alumno-curso",
+												"alumnos",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Crear registro alumno curso",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"idAlumno\": 1,\r\n  \"idCurso\": 5\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:9005/ms-alumno/v1/alumno-curso",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-alumno",
+												"v1",
+												"alumno-curso"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Editar registro alumno curso",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 6,\r\n    \"idAlumno\": 1,\r\n    \"idCurso\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:9005/ms-alumno/v1/alumno-curso",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-alumno",
+												"v1",
+												"alumno-curso"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Eliminar registro por ID de registro",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-alumno/v1/alumno-curso/180",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-alumno",
+												"v1",
+												"alumno-curso",
+												"180"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Eliminar registro por ID Alumno & ID Curso",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-alumno/v1/alumno-curso/alumnos/5/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-alumno",
+												"v1",
+												"alumno-curso",
+												"alumnos",
+												"5",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "## \\[API GATEWAY\\] Relación alumno- curso\n\n---\n\nRelación entre los datos de alumnos y cursos\n\n**Motor de base de datos:** Mysql\n\n**Puerto predeterminado:** 9005\n\n**Path principal:** /ms-alumno/v1/alumno-curso"
+						},
+						{
+							"name": "Alumno-Curso-Profesor",
+							"item": [
+								{
+									"name": "Leer registro alumno curso profesor",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9005/ms-alumno/v1/alumno-curso-profesor",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9005",
+											"path": [
+												"ms-alumno",
+												"v1",
+												"alumno-curso-profesor"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "## \\[API GATEWAY\\] Relación alumno - curso - profesor\n\n---\n\nRelación entre los datos de alumnos,cursos y profesores\n\n**Motor de base de datos:** Mysql\n\n**Puerto predeterminado:** 9005\n\n**Path principal:** /v1/alumno-curso-profesor"
+						},
+						{
+							"name": "Leer todos los alumnos VISIBLES",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-alumno/v1/alumno",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-alumno",
+										"v1",
+										"alumno"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Leer TODOS los alumnos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-alumno/v1/alumno/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-alumno",
+										"v1",
+										"alumno",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar alumno VISIBLE por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-alumno/v1/alumno/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-alumno",
+										"v1",
+										"alumno",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar alumno por ID (Sin importar si es visible o no)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-alumno/v1/alumno/all/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-alumno",
+										"v1",
+										"alumno",
+										"all",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear alumno",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombres\": \"Sorana\",\r\n    \"apellidos\": \"Magbel\",\r\n    \"sexo\": \"F\",\r\n    \"estado\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/ms-alumno/v1/alumno",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-alumno",
+										"v1",
+										"alumno"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar alumno",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n      \"id\": 8,\r\n      \"nombres\": \"Sorana 2\",\r\n      \"apellidos\": \"Magbel\",\r\n      \"sexo\": \"F\",\r\n      \"estado\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9005/ms-alumno/v1/alumno",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-alumno",
+										"v1",
+										"alumno"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar alumno",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9005/ms-alumno/v1/alumno/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9005",
+									"path": [
+										"ms-alumno",
+										"v1",
+										"alumno",
+										"10"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "# \\[API GATEWAY\\] Microservicio alumno\n\n---\n\nMicroservicio encargado de consultar y modificar los datos sobre alumno en la base de datos.\n\n**Motor de base de datos:** Mysql\n\n**Puerto predeterminado:** 9002\n\n**Path principal:** /ms-alumno/v1/alumno"
+				}
+			]
+		}
+	]
+}
