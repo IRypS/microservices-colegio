@@ -27,13 +27,13 @@ Los microservicios presentes en el repositorio son:
 
 #### Docker Compose
 
-0. (Opcional) Generar las bases de datos con los scripts ubicados en esta misma carpeta. Este paso no es necesario ya que por defautl están configurados para usar la base de datos en nube (usando docker-compose). Sin embargo puede que las peticiones de relaciones entre alumno - curso / profesor - curso **tarden aproximadamente 5s - 7s** en responder.
-1. Generar los JAR para todos los microservicios
-2. Ubicarse en la carpeta raiz del proyecto
-3. Ejecutar el comando `docker-compose build` para construir las imágenes
-4. Ejecutar el comando `docker-compose up` para ejecutar los contenedores y levantar la aplicación
-5. La aplicación debería levantarse
-6. Para detener y eliminar los contenedores se puede hacer uso del comando `docker-compose down`
+1. (Opcional) Generar las bases de datos con los scripts ubicados en esta misma carpeta. Este paso no es necesario ya que por default están configurados (usando docker-compose) para usar la base de datos en nube. Sin embargo puede que las peticiones de relaciones entre alumno - curso / profesor - curso **tarden aproximadamente 5s - 7s** en responder, puesto que la base de datos Sql Server de **ms-curso** está alojada en somee.com de manera gratuita (BD Compartida).
+2. Generar los JAR para todos los microservicios
+3. Ubicarse en la carpeta raiz del proyecto
+4. Ejecutar el comando `docker-compose build` para construir las imágenes
+5. Ejecutar el comando `docker-compose up` para ejecutar los contenedores y levantar la aplicación
+6. La aplicación debería levantarse
+7. Para detener y eliminar los contenedores se puede hacer uso del comando `docker-compose down`
 
 
 #### (JAVA 11) Correr microservicios manualmente
@@ -55,3 +55,9 @@ Para correr los microservicios deberemos de correrlos en el siguiente orden:
 6. ms-gateway
 
 _**Nota:**_ _Es importante que primero se inicializen completamente tanto eureka server (ms-discovery) como el servidor de configuración (ms-config-server)_
+
+
+---
+
+<small>Ricardo Manuel Pelaez Limpi</small>    
+<small>_Certus - 53X - Diseño de soluciones basadas en microservicios_</small>
