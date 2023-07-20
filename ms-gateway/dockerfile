@@ -1,0 +1,7 @@
+FROM openjdk:11-jdk-slim
+
+COPY target/ms-gateway-*.jar msgateway.jar
+
+EXPOSE 9005
+
+ENTRYPOINT bash -c "sleep 60 && java -jar msgateway.jar"

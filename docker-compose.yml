@@ -1,0 +1,113 @@
+version: '1.0'
+
+services:
+
+  eureka:
+    container_name: ms-discovery
+    image: ms-discovery:latest
+    build:
+      context: ./ms-discovery
+      dockerfile: dockerfile
+    ports:
+      - 9000:9000
+    environment:
+      - PERFIL=docker
+      - EUREKA_HOSTNAME=eureka
+      - PROTOCOL=http
+      - PORT=9000
+
+  configsv:
+    container_name: ms-config-server
+    image: ms-config-sv:latest
+    build:
+      context: ./ms-config-server
+      dockerfile: dockerfile
+    ports:
+      - 9010:9010
+    environment:
+      - PERFIL=docker
+      - GITHUB_CONFIG_REPO=https://github.com/IRypS/ms-config-data.git
+      - GITHUB_USERNAME=IRypS
+      - GITHUB_TOKEN=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
+      - EUREKA_URI=http://eureka:9000/eureka/
+    depends_on:
+      - eureka
+
+  mscurso:
+    container_name: ms-curso
+    image: ms-curso:latest
+    build:
+      context: ./ms-curso
+      dockerfile: dockerfile
+    ports:
+      - 9001:9001
+    environment:
+      - PERFIL=docker
+      - CONFIG_URI=http://configsv:9010
+      - EUREKA_URI=http://eureka:9000/eureka/
+      - SQLSV_DATABASE_URL=jdbc:sqlserver://ColegioMicroserviceIRypS.mssql.somee.com;databaseName=ColegioMicroserviceIRypS;TrustServerCertificate=True;?&useSSL=false
+      - SQLSV_DATABASE_USERNAME=IRypS_SQLLogin_2
+      - SQLSV_DATABASE_PASSWORD=sd34wlloox
+    depends_on:
+      - eureka
+      - configsv
+
+  msprofesor:
+    container_name: ms-profesor
+    image: ms-profesor:latest
+    build:
+      context: ./ms-profesor
+      dockerfile: dockerfile
+    ports:
+      - 9003:9003
+    environment:
+      - PERFIL=docker
+      - CONFIG_URI=http://configsv:9010
+      - EUREKA_URI=http://eureka:9000/eureka/
+      - MYSQL_DATABASE_URL=jdbc:mysql://containers-us-west-37.railway.app:6561/colegio_microservices?serverTimezone=GMT-5
+      - MYSQL_DATABASE_USERNAME=root
+      - MYSQL_DATABASE_PASSWORD=eki0XsPL8r10LsjcQSek
+    depends_on:
+      - eureka
+      - configsv
+      - mscurso
+
+  msalumno:
+    container_name: ms-alumno
+    image: ms-alumno:latest
+    build:
+      context: ./ms-alumno
+      dockerfile: dockerfile
+    ports:
+      - 9002:9002
+    environment:
+      - PERFIL=docker
+      - CONFIG_URI=http://configsv:9010
+      - EUREKA_URI=http://eureka:9000/eureka/
+      - MYSQL_DATABASE_URL=jdbc:mysql://containers-us-west-37.railway.app:6561/colegio_microservices?serverTimezone=GMT-5
+      - MYSQL_DATABASE_USERNAME=root
+      - MYSQL_DATABASE_PASSWORD=eki0XsPL8r10LsjcQSek
+    depends_on:
+      - eureka
+      - configsv
+      - mscurso
+      - msprofesor
+
+  msgateway:
+    container_name: ms-gateway
+    image: ms-gateway:latest
+    build:
+      context: ./ms-gateway
+      dockerfile: dockerfile
+    ports:
+      - 9005:9005
+    environment:
+      - PERFIL=docker
+      - EUREKA_URI=http://eureka:9000/eureka/
+    depends_on:
+      - eureka
+      - configsv
+      - mscurso
+      - msprofesor
+      - msalumno
+    

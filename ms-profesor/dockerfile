@@ -1,0 +1,7 @@
+FROM openjdk:11-jdk-slim
+
+COPY target/ms-profesor-*.jar msprofesor.jar
+
+EXPOSE 9003
+
+ENTRYPOINT bash -c "sleep 35 && java -jar msprofesor.jar"

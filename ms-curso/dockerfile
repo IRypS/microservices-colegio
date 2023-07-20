@@ -1,0 +1,7 @@
+FROM openjdk:11-jdk-slim
+
+COPY target/ms-curso-*.jar mscurso.jar
+
+EXPOSE 9001
+
+ENTRYPOINT bash -c "sleep 30 && java -jar mscurso.jar"
