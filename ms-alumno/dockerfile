@@ -4,4 +4,4 @@ COPY target/ms-alumno-*.jar msalumno.jar
 
 EXPOSE 9002
 
-ENTRYPOINT bash -c "sleep 40 && java -jar msalumno.jar"
+ENTRYPOINT bash -c "sleep 90 && java -jar msalumno.jar"

@@ -4,4 +4,4 @@ COPY target/ms-profesor-*.jar msprofesor.jar
 
 EXPOSE 9003
 
-ENTRYPOINT bash -c "sleep 35 && java -jar msprofesor.jar"
+ENTRYPOINT bash -c "sleep 70 && java -jar msprofesor.jar"
