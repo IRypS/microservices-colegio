@@ -12,21 +12,22 @@ Agrupación de los microservicios para la base de datos `Colegio`.
 
 Los microservicios presentes en el repositorio son:
 
-- Eureka Server Discovery (ms-discovery)
-- Api Gateway (ms-gateway)
-- Config Server (ms-config-server)
-- Config data: 
+- [Puerto: 9000] Eureka Server Discovery (ms-discovery)  
+- [Puerto: 9005] Api Gateway (ms-gateway)
+- [Puerto: 9010] Config Server (ms-config-server)
+- Config data: | Puerto:  
   - Local -> (ms-config-data)
   - Github -> _Ubicado en un repositorio privado_
       ![a](https://cdn.discordapp.com/attachments/1131379840696721489/1131380071203098624/image.png)
-- Microservicio curso (ms-curso)
-- Microservicio profesor (ms-profesor)
-- Microservicio alumno (ms-alumno)
+- [Puerto: 9001] Microservicio curso (ms-curso)
+- [Puerto: 9003] Microservicio profesor (ms-profesor)
+- [Puerto: 9002] Microservicio alumno (ms-alumno)
 
 ### Correr el proyecto
 
 #### Docker Compose
 
+0. (Opcional) Generar las bases de datos con los scripts ubicados en esta misma carpeta. Este paso no es necesario ya que por defautl están configurados para usar la base de datos en nube (usando docker-compose). Sin embargo puede que las peticiones de relaciones entre alumno - curso / profesor - curso **tarden aproximadamente 5s - 7s** en responder.
 1. Generar los JAR para todos los microservicios
 2. Ubicarse en la carpeta raiz del proyecto
 3. Ejecutar el comando `docker-compose build` para construir las imágenes
